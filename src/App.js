@@ -25,13 +25,44 @@ import { Component } from 'react';
 // }
 
 // component and properties.
+// function Biodata(props) {
+//   return <span>Umurnya {props.age}</span>
+// }
 
-function Biodata(props) {
-  return <span>Umurnya {props.age}</span>
-}
+// function Greeting(props) {
+//   return <h1>Hallo Guys Nama Saya {props.name} - <Biodata age={props.age}/></h1>
+// }
 
-function Greeting(props) {
-  return <h1>Hallo Guys Nama Saya {props.name} - <Biodata age={props.age}/></h1>
+// STATE
+class Timer extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      time: props.start
+    }
+  }
+
+  //lifecycle
+  componentDidMount(){
+    this.addInterval = setInterval( () => this.increase(),1000);
+  }
+
+  componentWillUnmount(){
+    clearInterval(this.addInterval)
+  }
+
+  increase() {
+    //update state time setiap detik
+    this.setState((state, props) => ({
+      time: parseInt(state.time) + 1
+    }))
+  }
+
+  render() {
+    return (
+      <div>{this.state.time} Detik</div>
+    )
+  }
 }
 
 class App extends Component {
@@ -40,9 +71,10 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-
-          <Greeting name="Guido" age="25"/>
-          <Greeting name="Dika" age="12"/>
+          <Timer start="0"/>
+          <Timer start="5"/>
+          {/* <Greeting name="Guido" age="25"/>
+          <Greeting name="Dika" age="12"/> */}
         </header>
       </div>
     );
