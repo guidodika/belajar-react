@@ -24,7 +24,7 @@ import { Component } from 'react';
 //   );
 // }
 
-// component and properties.
+// COMPONENT AND PROPERTIES.
 // function Biodata(props) {
 //   return <span>Umurnya {props.age}</span>
 // }
@@ -71,8 +71,10 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
+          
           <Timer start="0"/>
           <Timer start="5"/>
+
           {/* <Greeting name="Guido" age="25"/>
           <Greeting name="Dika" age="12"/> */}
         </header>
