@@ -24,7 +24,7 @@ import { Component } from 'react';
 //   );
 // }
 
-// component and properties
+// component and properties.
 
 function Biodata(props) {
   return <span>Umurnya {props.age}</span>
